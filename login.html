@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Telecel Ghana</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="logo">
+                    <img src="images/telecellogo.jpg" alt="Telecel Ghana Logo" class="logo-circle">
+                    <p class="subtitle">Staff Login</p>
+                </div>
+                
+                <!-- Step 1: Email and Password -->
+                <div id="step1" class="form-step active">
+                    <h2>Login to Your Account</h2>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required autocomplete="email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required autocomplete="current-password">
+                        </div>
+                        
+                        <div class="form-group">
+                            <a href="password-recovery.html" class="forgot-password">Forgot Password?</a>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    </form>
+                    
+                    <div class="auth-footer">
+                        <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+                    </div>
+                </div>
+                
+                <!-- Step 2: 2FA Verification -->
+                <div id="step2" class="form-step">
+                    <h2>Two-Factor Authentication</h2>
+                    <div class="auth-instructions">
+                        <p>Please open your Google Authenticator app and enter the 6-digit code:</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="authToken">6-digit Authentication Code</label>
+                        <input type="text" id="authToken" name="authToken" maxlength="6" pattern="[0-9]{6}" placeholder="000000" required autocomplete="off">
+                        <small>The code changes every 30 seconds</small>
+                    </div>
+                    
+                    <button type="button" id="verify2FABtn" class="btn btn-primary btn-block">Verify & Login</button>
+                    <button type="button" id="cancelBtn" class="btn btn-secondary btn-block" style="margin-top: 10px;">Cancel</button>
+                </div>
+                
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="login.js"></script>
+</body>
+</html>
+
